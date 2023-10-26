@@ -1,0 +1,11 @@
+daos\Genero.class
+daos\Libro.class
+daos\Prestamo.class
+daos\AutorLibro.class
+daos\Coleccion.class
+daos\Acceso.class
+controladores\App.class
+daos\Editorial.class
+daos\EstadoPrestamo.class
+daos\Autor.class
+daos\Usuario.class
