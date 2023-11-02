@@ -7,7 +7,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,28 +20,47 @@ public class Libro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_libro", nullable = false)
-	private long id_libro;
+	private long idLibro;
 
-	@Column(name = "isbn_libro", nullable = false)
-	private String isbn_libro;
+	@Column(name = "isbn", nullable = false)
+	private String isbn;
 	
-	@Column(name = "titulo_libro", nullable = false)
-	private String titulo_libro;
+	@Column(name = "titulo", nullable = false)
+	private String titulo;
 	
-	@Column(name = "edicion_libro", nullable = false)
-	private String edicion_libro;
+	@Column(name = "edicion", nullable = false)
+	private String edicion;
 	
-	@ManyToMany (mappedBy = "listaLibros")
-	List<Autor> listaAutores;
-
+	@ManyToMany (mappedBy = "libros")
+	List<Autor> autores;
+	
+	@ManyToOne
+	@JoinColumn(name = "editorial_id")
+	Editorial editorial;
+	
+	@ManyToOne
+	@JoinColumn(name = "genero_id")
+	Genero genero;
+	
+	@ManyToOne
+	@JoinColumn(name = "coleccion_id")
+	Coleccion coleccion;
+	
+	@OneToMany(mappedBy = "libro")
+	List<Prestamo> prestamos;
+	
+	
 	public Libro() {
 		super();
 	}
 	
-	public Libro(String isbn_libro, String titulo_libro, String edicion_libro) {
+	public Libro(String isbn, String titulo, String edicion, Editorial editorial, Genero genero, Coleccion coleccion) {
 		super();
-		this.isbn_libro = isbn_libro;
-		this.titulo_libro = titulo_libro;
-		this.edicion_libro = edicion_libro;
+		this.isbn = isbn;
+		this.titulo = titulo;
+		this.edicion = edicion;
+		this.editorial = editorial;
+		this.genero = genero;
+		this.coleccion = coleccion;
 	}
 }

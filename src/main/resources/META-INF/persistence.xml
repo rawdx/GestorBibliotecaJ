@@ -6,7 +6,12 @@
 	<persistence-unit name="default">
 		<class>daos.Acceso</class>
 		<class>daos.Autor</class>
+		<class>daos.Coleccion</class>
+		<class>daos.Editorial</class>
+		<class>daos.Estado</class>
+		<class>daos.Genero</class>
 		<class>daos.Libro</class>
+		<class>daos.Prestamo</class>
 		<class>daos.Usuario</class>
 		<exclude-unlisted-classes />
 		<properties>

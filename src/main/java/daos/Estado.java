@@ -11,29 +11,28 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Accesos", schema = "Biblioteca")
-public class Acceso {
-	// ATRIBUTOS
+@Table(name = "Estados", schema = "Biblioteca")
+public class Estado {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_acceso", nullable = false)
-	private long idAcceso;
-
+	@Column(name = "id_estado", nullable = false)
+	private long idEstado;
+	
 	@Column(name = "codigo", nullable = false)
 	private String codigo;
-
-	@Column(name = "descripcion")
+	
+	@Column(name = "descripcion", nullable = false)
 	private String descripcion;
-
-	@OneToMany(mappedBy = "acceso")
-	List<Usuario> usuarios;
-
-	// CONSTRUCTORES
-	public Acceso() {
+	
+	@OneToMany(mappedBy = "estado")
+	List<Prestamo> prestamos;
+	
+	public Estado() {
 		super();
 	}
 
-	public Acceso(String codigo, String descripcion) {
+	public Estado(String codigo, String descripcion) {
 		super();
 		this.codigo = codigo;
 		this.descripcion = descripcion;

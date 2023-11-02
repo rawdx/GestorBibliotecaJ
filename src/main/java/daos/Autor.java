@@ -19,27 +19,27 @@ public class Autor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_autor", nullable = false)
-	private long id_autor;
+	private long idAutor;
 
-	@Column(name = "nombre_autor")
-	private String nombre_autor;
+	@Column(name = "nombre")
+	private String nombre;
 
-	@Column(name = "apellidos_autor")
-	private String apellidos_autor;
+	@Column(name = "apellidos")
+	private String apellidos;
 	
 	@JoinTable(name="Rel_Autores_Libros",
 			joinColumns = @JoinColumn(name = "autor_id"),
 			inverseJoinColumns = @JoinColumn(name = "libro_id"))
 	@ManyToMany
-	List<Libro> listaLibros;
+	List<Libro> libros;
 	
 	public Autor() {
 		super();
 	}
 	
-	public Autor(String nombre_autor, String apellidos_autor) {
+	public Autor(String nombre, String apellidos) {
 		super();
-		this.nombre_autor = nombre_autor;
-		this.apellidos_autor = apellidos_autor;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
 	}
 }
