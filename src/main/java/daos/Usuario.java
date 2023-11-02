@@ -18,7 +18,7 @@ import jakarta.persistence.TemporalType;
 @Entity
 @Table(name = "Usuarios", schema = "Biblioteca")
 public class Usuario {
-	// ATRIBUTOS
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario", nullable = false)
@@ -64,7 +64,6 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario")
 	List<Prestamo> prestamos;
 
-	// CONSTRUCTORES
 
 	public Usuario() {
 		super();

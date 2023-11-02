@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Accesos", schema = "Biblioteca")
 public class Acceso {
-	// ATRIBUTOS
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_acceso", nullable = false)
@@ -28,7 +28,7 @@ public class Acceso {
 	@OneToMany(mappedBy = "acceso")
 	List<Usuario> usuarios;
 
-	// CONSTRUCTORES
+	
 	public Acceso() {
 		super();
 	}
